@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="addressBook">
+<head>
+	<meta charset="UTF-8">
+	<title>Address Book</title>
+	<link rel="shortcut icon" href="http://faviconist.com/icons/e513bb7a06421ad4447ce5fe5bcf99a4/favicon.ico" />
+	<link rel="stylesheet" href="front/css/bs.min.css">
+	<link rel="stylesheet" href="front/css/fa.min.css">
+	<link rel="stylesheet" href="front/css/app.css">
+</head>
+<body>
+	<div class="application-wrapper">
+		<div class="container-fluid application" ng-controller="AppController">
+			<div class="row">
+				<div class="col-md-3 sidebar">
+					<form novalidate class="form-inline login-section" name="loginForm" ng-submit="loginForm.$valid ? loginRegister() : null" ng-show="!isLoggedIn">
+						<div class="form-group has-feedback">
+							<input ng-class="{'has-error' : loginForm.userName.$error.pattern && !loginForm.userName.$pristine}" type="text" name="userName" ng-model="data.userName" class="form-control" 
+								placeholder="Login" required ng-pattern="/^[a-z0-9_-]{3,16}$/">
+							<span class="fa fa-user form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<input ng-class="{'has-error' : loginForm.passWord.$error.pattern && !loginForm.passWord.$pristine}" type="password" class="form-control" placeholder="Password" 
+								name="passWord"	ng-model="data.passWord" required ng-pattern="/^[a-z0-9_-]{6,18}$/">
+							<span class="fa fa-key form-control-feedback"></span>
+						</div>
+						
+						<div class="form-group contacts-operations text-center">
+							<button type="submit" ng-disabled="loginForm.$invalid" ng-click="data.actionType='login'" class="btn btn-sm btn-success">Login</button>
+							<button type="submit" ng-disabled="loginForm.$invalid" ng-click="data.actionType='register'" class="btn btn-sm btn-default">Register</button>
+						</div>
+
+						<div class="form-group" ng-show="data.loggerMessage">
+							<div class="alert alert-warning text-center">
+								{{data.loggerMessage}}
+								<button type="button" class="close">
+									<span ng-click="data.loggerMessage=''">&times;</span>
+								</button>
+							</div>
+						</div>
+					</form>
+
+						<form class="form-inline" ng-show="isLoggedIn">
+							<div class="form-group has-feedback">
+								<input type="search" class="form-control" ng-model="searchQuery" placeholder="Search your contacts">
+								<span class="fa fa-search form-control-feedback"></span>
+							</div>
+
+							<div class="btn-group">
+								 <div class="btn-group" ng-class="{active: data.activeGroup === '!'}">
+								    <button type="button" class="btn btn-sm" ng-click="data.activeGroup = '!'">All Contacts</button>
+								  </div> 
+								  <div class="btn-group" ng-class="{active: data.activeGroup === group}" ng-repeat="group in data.groups">
+								    <button type="button" class="btn btn-sm" ng-click="data.activeGroup = group">{{group}}</button>
+								  </div> 
+							</div>
+						</form>
+
+						<div class="contacts-list" ng-show="isLoggedIn">
+							<div class="list-group">
+								<a href="" class="list-group-item shadowed">Name <small>filter by Name</small>
+									<i class="fa fa-sort-alpha-{{data.sortType}}" ng-click="toggleAscDesc()" ></i>
+								</a>
+								<div class="contacts">
+									<contact-card-small ng-repeat="contact in data.contacts | filter: {name: searchQuery} | orderBy:'name':data.sortFlag | filter:{group: data.activeGroup}:true track by $index"  ng-class="{active: data.current === contact}" data="contact">
+									</contact-card-small>
+								</div>
+							</div>
+
+							<div class="text-center contacts-operations">
+								<a href="#/contacts/add"><button class="btn btn-success btn-sm">Add <i class="fa fa-plus"></i></button></a>
+								<button class="btn btn-default btn-sm" ng-click="removeContact()">Remove <i class="fa fa-minus"></i></button>
+							</div>
+
+						</div>
+						<div class="text-center footer" ng-show="isLoggedIn">
+							<p>Logged in as: <b>{{data.userName}}</b> | <a href="#" ng-click="logOut()">Logout <i class="fa fa-close"></i></a></p>
+						</div>
+				</div>
+				<div class="col-md-9 pane">
+				<div ng-view=""></div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script src="front/js/app.js"></script>
+</html>

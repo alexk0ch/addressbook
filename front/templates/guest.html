@@ -1,0 +1,28 @@
+<div class="text-center" ng-show="!isLoggedIn">
+	<i class="fa fa-key big-icon"></i>
+	<h2>Please log in or register to use the app!</h2>
+</div>
+
+<div class="text-center" ng-show="isLoggedIn">
+	<div class="col-md-4 col-md-push-4">
+		<i class="fa fa-user big-icon"></i>
+		<h2>Welcome back, <b>{{data.userName}}</b>!</h2>
+		<hr>
+		<p><b>Cheatsheet:</b></p>
+	
+		<ul class="list-unstyled text-left">
+			<li>
+				<i class="fa fa-search fa-padding"></i> Search your contacts by name or surname
+			</li>
+			<li>
+				<i class="fa fa-filter fa-padding"></i> Filter contacts by group
+			</li>
+			<li>
+				<i class="fa fa-sort-alpha-asc fa-padding"></i> Filter contacts by Name
+			</li>
+			<li>
+				<i class="fa fa-plus"></i> <i class="fa fa-minus"></i> <i class="fa fa-edit"></i> Add, remove, edit your contacts
+			</li>
+		</ul>
+	</div>
+</div>
