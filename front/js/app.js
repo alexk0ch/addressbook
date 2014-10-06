@@ -275,7 +275,7 @@ angular.module('addressBook')
 				data: '='
 			},
 			replace: true,
-			templateUrl: "../front/templates/directive-templates/contactCardSmall.html"
+			templateUrl: "../templates/directive-templates/contactCardSmall.html"
 		};
 	})
 angular.module('addressBook')
@@ -455,20 +455,20 @@ angular.module('addressBook')
 	  $routeProvider
 		  
 		  .when('/login', {
-		  	templateUrl: '../front/templates/guest.html'
+		  	templateUrl: '../templates/guest.html'
 		  })
 
 		  .when('/contacts/view/:id', {
-		  	templateUrl: '../front/templates/contactDetail.html',
+		  	templateUrl: '../templates/contactDetail.html',
 		  	controller: 'ContactDetail'
 		  })
 
 		  .when('/contacts/add', {
-		  	templateUrl: '../front/templates/add.html'
+		  	templateUrl: '../templates/add.html'
 		  })
 
 		  .when('/contacts/edit/:id', {
-		  	templateUrl: '../front/templates/edit.html',
+		  	templateUrl: '../templates/edit.html',
 		  	controller: 'ContactDetail'
 		  })
 
