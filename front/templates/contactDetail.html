@@ -1,0 +1,31 @@
+<div ng-show="data.contacts.length">
+	<div class="row contact-details">
+		<div class="col-md-3 text-center">
+			<div class="contact-image-container">
+				<img src="front/img/placeholder.png" alt="" class="img-square">
+				<a href="#/contacts/edit/{{data.current.id}}"><button class="btn btn-sm btn-success">Edit</button></a>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<h1 class="text-center">{{data.current.name}} {{data.current.surname}}
+				<small>{{data.current.group}}</small>
+			</h1>
+		</div>
+	</div>
+
+	<div class="row infopane">
+		<div class="col-md-6">
+			<div class="">
+				<i class="fa fa-envelope btn-sm"></i>
+				<a href="mailto:{{data.current.email}}">
+					{{data.current.email}}
+				</a>
+			</div>
+
+			<div class="">
+				<i class="fa fa-phone-square btn-sm"></i> 
+				{{data.current.phone}}
+			</div>
+		</div>
+	</div>
+</div>

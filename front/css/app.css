@@ -1,0 +1,200 @@
+.application {
+	background-color: #E8E8E8;
+}
+
+.big-icon {
+	font-size: 6em;
+	margin-top: 25%;
+}
+
+.sidebar, .pane {
+	height: 100vh;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+@media screen and (max-width: 999px) {
+	.sidebar, .pane {
+		height: auto;
+	}
+}
+
+.sidebar {
+	padding: 10px;
+	background-color: #D6D6D6;
+	border-right: 2px solid #B1B4A7
+}
+
+.form-inline .form-control, .form-group  {
+	display: block;
+	border: none;
+	box-shadow: none;
+	margin-bottom: 0px;
+	width: 100%;
+}
+
+.form-inline .has-feedback .form-control-feedback {
+	top: 12px;
+}
+
+.contacts-list {
+	padding: 0px;
+}
+
+.list-group {
+	margin-bottom: 0px;
+}
+
+.contacts-list .list-group>a>i, 
+.contacts-list .list-group>a:first-child{
+	font-size: 1.1em;
+}
+
+.contacts-list .list-group>a>i {
+	position: absolute;
+	right: 10px;
+	top: 7.5px;
+}
+
+.list-group-item,
+.list-group-item.active, 
+.list-group-item.active:hover, 
+.list-group-item.active:focus {
+	border: 0px solid transparent;
+	padding: 5px 10px;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover, 
+.list-group-item.active:focus {
+	background-color: #85BF1A;
+}
+
+.form-inline>.btn-group {
+	width: 100%;
+	background-color: #DFDFDF;
+	margin-bottom: 10px;
+}
+
+.btn-group.active button, .btn.btn-success{
+	background-color: #85BF1A;
+	border: 1px solid #85BF1A;
+	color: white;
+}
+
+small {
+	font-size: .7em;
+	vertical-align: -2px;
+	padding-left: 2px;
+	color: #D2D3CB
+}
+
+.contacts-operations {
+	margin-top: 10px;
+}
+
+.contacts-operations button {
+	width: 33.3%
+}
+
+.pane {
+	overflow: hidden;
+}
+
+.pane>.row {
+	padding: 25px;
+}
+
+.pane .col-md-3, .pane .col-md-9{
+	padding: 0px;
+}
+
+.pane h1 {
+	font-size: 3em;
+	padding-top: 30px;
+}
+
+.pane h1>small {
+	color: #85BF1A
+}
+
+.contact-image-container {
+	position: relative;
+	display: inline-block;
+	width: auto;
+}
+
+.img-square {
+	max-width: 150px;
+}
+
+.contact-image-container button {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.infopane {
+	background-color: #fff;
+	padding: 60px;
+	font-size: 1.2em;
+}
+
+.contact-details {
+	background-color: #CEEF8F;
+	border-top: 10px solid #85BF1A;
+}
+
+a {
+	color: #85BF1A;
+}
+
+a:hover, a:active {
+	color: #43600D;
+}
+
+.login-section {
+	margin-bottom: 10px;
+}
+
+.has-error {
+	background-color: #FC9B8D;
+}
+
+.looks-valid {
+	background-color: #ACFA92;
+}
+
+.footer {
+	position: absolute;
+	bottom: 5px;
+	width: 300px;
+	left: 50%;
+	margin-left: -150px;
+}
+
+.form-group>.alert {
+	width: 66.6%;
+	margin: 10px auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #aaa;
+}
+
+.contacts {
+	background-color: #F4F4F4;
+	height: 300px;
+	overflow-y: scroll;
+	border-top: 7px solid #CEEF8F;
+}
