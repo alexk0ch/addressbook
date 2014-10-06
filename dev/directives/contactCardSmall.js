@@ -6,6 +6,6 @@ angular.module('addressBook')
 				data: '='
 			},
 			replace: true,
-			templateUrl: "../front/templates/directive-templates/contactCardSmall.html"
+			templateUrl: "front/templates/directive-templates/contactCardSmall.html"
 		};
 	})
