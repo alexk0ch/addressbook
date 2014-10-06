@@ -13,16 +13,17 @@
 	padding-right: 0px;
 }
 
-@media screen and (max-width: 999px) {
-	.sidebar, .pane {
-		height: auto;
-	}
-}
-
 .sidebar {
 	padding: 10px;
 	background-color: #D6D6D6;
 	border-right: 2px solid #B1B4A7
+}
+
+.contacts {
+	background-color: #F4F4F4;
+	height: 300px;
+	overflow-y: scroll;
+	border-top: 7px solid #CEEF8F;
 }
 
 .form-inline .form-control, .form-group  {
@@ -192,9 +193,25 @@ a:hover, a:active {
 	background-color: #aaa;
 }
 
-.contacts {
-	background-color: #F4F4F4;
-	height: 300px;
-	overflow-y: scroll;
-	border-top: 7px solid #CEEF8F;
+@media screen and (max-width: 999px) {
+	.sidebar, .pane {
+		height: auto;
+	}
+	.sidebar {
+		padding-bottom: 50px;
+	}
+	.contacts {
+		height: 100px;
+	}
+	.img-square {
+		max-width: 100px;
+	}
+	.pane h1 {
+		padding-top: 10px;
+		font-size: 2em;
+	}
+	.infopane {
+		padding: 0px;
+		padding-left: 90px;
+	}
 }

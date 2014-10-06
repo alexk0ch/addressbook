@@ -1,5 +1,5 @@
 angular.module('addressBook')
-	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
+	.config(['$routeProvider', function ($routeProvider) {
   
 	  $routeProvider
 		  

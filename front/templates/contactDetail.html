@@ -1,12 +1,13 @@
 <div ng-show="data.contacts.length">
+	
 	<div class="row contact-details">
-		<div class="col-md-3 text-center">
+		<div class="col-md-3 col-xs-3 text-center">
 			<div class="contact-image-container">
 				<img src="front/img/placeholder.png" alt="" class="img-square">
 				<a href="#/contacts/edit/{{data.current.id}}"><button class="btn btn-sm btn-success">Edit</button></a>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 col-xs-8">
 			<h1 class="text-center">{{data.current.name}} {{data.current.surname}}
 				<small>{{data.current.group}}</small>
 			</h1>
@@ -28,4 +29,5 @@
 			</div>
 		</div>
 	</div>
+	
 </div>
