@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3231da11-9a6d-41cd-bf56-5d01ab2121fe" name="Default" comment="Covered rest of recommendations.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev/vendor/ng/ng-animate.min.js" />
-      <change type="DELETED" beforePath="E:\addressbook\dev\directives\contactCardSmall.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\addressbook\dev\vendor\ng\ng-cookie.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\addressbook\front\templates\directive-templates\contactCardSmall.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\addressbook\front\templates\login.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/controllers/AppController.js" afterPath="$PROJECT_DIR$/dev/controllers/AppController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/controllers/ContactsController.js" afterPath="$PROJECT_DIR$/dev/controllers/ContactsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/services/User.js" afterPath="$PROJECT_DIR$/dev/services/User.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/templates/add.html" afterPath="$PROJECT_DIR$/front/templates/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/addressbook.iml" afterPath="$PROJECT_DIR$/.idea/addressbook.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/css/app.css" afterPath="$PROJECT_DIR$/front/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/js/app.js" afterPath="$PROJECT_DIR$/front/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/templates/contactDetail.html" afterPath="$PROJECT_DIR$/front/templates/contactDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/templates/edit.html" afterPath="$PROJECT_DIR$/front/templates/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/templates/guest.html" afterPath="$PROJECT_DIR$/front/templates/guest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/init.js" afterPath="$PROJECT_DIR$/dev/init.js" />
+    <list default="true" id="3231da11-9a6d-41cd-bf56-5d01ab2121fe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addressbook.iws" />
@@ -45,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2930648" vertical-offset="0" max-vertical-offset="2346">
-              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.72421527" vertical-offset="0" max-vertical-offset="2346">
+              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -403,6 +386,11 @@
       <created>1412760737307</created>
       <updated>1412760737307</updated>
     </task>
+    <task id="LOCAL-00001" summary="Covered rest of recommendations.">
+      <created>1412769685908</created>
+      <updated>1412769685908</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -410,15 +398,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32853404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32984293" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33070865" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14122863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32939634" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -616,8 +604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2930648" vertical-offset="0" max-vertical-offset="2346">
-          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.72421527" vertical-offset="0" max-vertical-offset="2346">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding />
         </state>
       </provider>
