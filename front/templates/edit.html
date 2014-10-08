@@ -2,30 +2,54 @@
 		<div class="col-md-6 col-md-push-3">
 			<h3 class="text-center">Edit Contact</h3>			
 			<form class="form form-inline" novalidate name="ContactEditForm" ng-submit="ContactEditForm.$valid ? updateContact() : null">
-				<input placeholder="Name" ng-class="{'has-error' : ContactEditForm.name.$error.pattern && !ContactEditForm.name.$pristine}" 
-					type="text" name="name" ng-model="data.currentClone.name" 
-					class="form-control" required ng-pattern="/^[a-zA-Z0-9_-]{3,16}$/"
+				<input 
+					placeholder="Name" 
+					ng-class="{'has-error' : ContactEditForm.name.$error.pattern && !ContactEditForm.name.$pristine}" 
+					type="text" 
+					name="name" 
+					ng-model="data.currentClone.name" 
+					class="form-control" 
+					required 
+					ng-pattern="/^[a-zA-Z0-9_-]{3,16}$/"
 				>
 				<input 
-					placeholder="Surname" ng-class="{'has-error' : ContactEditForm.surname.$error.pattern && !ContactEditForm.surname.$pristine}" 
-					type="text" name="surname" ng-model="data.currentClone.surname" class="form-control" 
-					required ng-pattern="/^[a-zA-Z0-9_-]{3,16}$/"
+					placeholder="Surname" 
+					ng-class="{'has-error' : ContactEditForm.surname.$error.pattern && !ContactEditForm.surname.$pristine}" 
+					type="text" 
+					name="surname" 
+					ng-model="data.currentClone.surname" 
+					class="form-control" 
+					required 
+					ng-pattern="/^[a-zA-Z0-9_-]{3,16}$/"
 				>
 				<input 
-					placeholder="Phone" name="phone"
-					type="text" ng-class="{'has-error' : ContactEditForm.phone.$error.pattern && !ContactEditForm.phone.$pristine}" 
-					class="form-control" required ng-model="data.currentClone.phone" ng-pattern="/^\d{7,}$/"
+					placeholder="Phone" 
+					name="phone"
+					type="text" 
+					ng-class="{'has-error' : ContactEditForm.phone.$error.pattern && !ContactEditForm.phone.$pristine}" 
+					class="form-control" 
+					required 
+					ng-model="data.currentClone.phone" 
+					ng-pattern="/^\d{7,}$/"
 				>
 				<input 
-					placeholder="Email" type="email" 
-					name="email"ng-class="{'has-error' : ContactEditForm.email.$error.pattern && !ContactEditForm.email.$pristine}" 
-					class="form-control" required ng-model="data.currentClone.email" 
+					placeholder="Email" 
+					type="email" 
+					name="email"
+					ng-class="{'has-error' : ContactEditForm.email.$error.pattern && !ContactEditForm.email.$pristine}" 
+					class="form-control" 
+					required 
+					ng-model="data.currentClone.email" 
 					ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
 				>
 				<input 
 					placeholder="Group -> {{(data.groups.join(', '))}} or new one" 
-					type="text" name="group"ng-class="{'has-error' : ContactEditForm.group.$error.pattern && !ContactEditForm.group.$pristine}" 
-					class="form-control" ng-model="data.currentClone.group" ng-pattern="/^[a-zA-Z0-9_-]+$/"
+					type="text" 
+					name="group"
+					ng-class="{'has-error' : ContactEditForm.group.$error.pattern && !ContactEditForm.group.$pristine}" 
+					class="form-control" 
+					ng-model="data.currentClone.group" 
+					ng-pattern="/^[a-zA-Z0-9_-]+$/"
 				>
 				<div ng-show="data.loggerMessage" class="text-center">
 					<div class="alert alert-danger text-center">

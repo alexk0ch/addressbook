@@ -268,17 +268,6 @@ n.directive("ngView",x);n.directive("ngView",z);x.$inject=["$route","$anchorScro
 
 angular.module('addressBook', ['ngRoute', 'ngResource']);
 angular.module('addressBook')
-	.directive('contactCardSmall', function () {
-		return {
-			restrict: 'EA',
-			scope: {
-				data: '='
-			},
-			replace: true,
-			templateUrl: "../front/templates/directive-templates/contactCardSmall.html"
-		};
-	})
-angular.module('addressBook')
 	.factory('User', function () {
 
 		'use strict';
@@ -323,116 +312,111 @@ angular.module('addressBook')
 
 });
 angular.module('addressBook')
-.controller('AppController', function ($scope, User, $timeout, $location, $routeParams) {
+	.controller('AppController', function ($scope, User, $timeout, $location, $routeParams) {
 
-	$scope.data = User.getDefault();
+		$scope.data = User.getDefault();
 
-	$scope.loginRegister = function () {
+		$scope.loginRegister = function () {
 
-		$scope.data.login = CryptoJS.MD5($scope.data.userName).toString();
-		$scope.data.password = CryptoJS.MD5($scope.data.passWord).toString();
-		$scope.data.passWord = '';
+			$scope.data.login = CryptoJS.MD5($scope.data.userName).toString();
+			$scope.data.password = CryptoJS.MD5($scope.data.passWord).toString();
+			$scope.data.passWord = '';
 
-		if ($scope.data.actionType === 'register')
-			registerUser(); 
-		if ($scope.data.actionType === 'login')
-			loginUser();
-	}
-
-	$scope.$watch('data.loggerMessage', function () {
-		$timeout(function () {
-			$scope.data.loggerMessage = ''
-		}, 3000)
-	})
-
-	function registerUser () {
-
-		User.setStorage($scope.data.login);
-
-		var exists = User.get();
-
-		if (!!exists) {
-			$scope.data.loggerMessage = 'User exists, pick another name';
-		} else {
-			User.setLastAccess($scope.data.login);
-			User.set($scope.data)
-			loginUser();
+			if ($scope.data.actionType === 'register')
+				registerUser(); 
+			if ($scope.data.actionType === 'login')
+				loginUser();
 		}
-	}
 
-	function loginUser () {
-
-		User.setStorage($scope.data.login);
-
-		var exists = User.get();
-
-		if (!!exists && exists.password === $scope.data.password) {
-			User.setLastAccess($scope.data.login);
-			$scope.data = exists;
-			$scope.isLoggedIn = true;
-			$location.path('/contacts/').replace();
-		} else {
-			$scope.data.loggerMessage = 'Can\'t find user with this name or password';
-		}
-	}
-
-	$scope.autoLog = function () {
-		var lA = User.getLastAccess();
-		if (lA) {
-			User.setStorage(lA);
-			$scope.data = User.get();
-			$scope.isLoggedIn = true;
-		}
-	}
-
-	$scope.autoLog();
-
-	$scope.logOut = function () {
-		User.clearLastAccess();
-		$scope.isLoggedIn = false;
-	}
-
-	$scope.toggleAscDesc = function () {
-		$scope.data.reverse = !$scope.data.reverse;
-		$scope.data.sortFlag = !$scope.data.sortFlag;
-		$scope.data.sortType = ['asc', 'desc'][+$scope.data.sortFlag];
-	}
-
-	$scope.removeContact = function () {
-		$scope.data.contacts.forEach(function (contact) {
-			if (contact.id == $routeParams.id) {
-				$scope.data.contacts.splice($scope.data.contacts.indexOf(contact), 1);
-			}
+		$scope.$watch('data.loggerMessage', function () {
+			$timeout(function () {
+				$scope.data.loggerMessage = ''
+			}, 3000)
 		})
-		User.set($scope.data);
-		fetchGroups();
-	}
 
-	$scope.addContact = function (newContact) {
-		var lastId = 0;
-		if ($scope.data.contacts.length) {
-			var lastId = $scope.data.contacts[$scope.data.contacts.length-1].id
-		}
-		var newContactOutOfScope = angular.copy(newContact)
-		newContactOutOfScope.id = lastId + 1;
-		$scope.data.contacts.push(newContactOutOfScope);
-		$location.path('/contacts/view/' + (lastId+1));
-		User.set($scope.data);
-		fetchGroups();
-	}
+		function registerUser () {
 
-	function fetchGroups (name) {
-		var groups = {};
-		$scope.data.contacts.map(function (contact) {
-			if (!!contact.group) {
-				groups[contact.group] = '';
+			User.setStorage($scope.data.login);
+
+			var exists = User.get();
+
+			if (!!exists) {
+				$scope.data.loggerMessage = 'User exists, pick another name';
+			} else {
+				User.setLastAccess($scope.data.login);
+				User.set($scope.data)
+				loginUser();
 			}
-		});
+		}
 
-		$scope.data.groups = Object.keys(groups);
-	}
+		function loginUser () {
 
-	fetchGroups();
+			User.setStorage($scope.data.login);
+
+			var exists = User.get();
+
+			if (!!exists && exists.password === $scope.data.password) {
+				User.setLastAccess($scope.data.login);
+				$scope.data = exists;
+				$scope.isLoggedIn = true;
+				$location.path('/contacts/').replace();
+			} else {
+				$scope.data.loggerMessage = 'Can\'t find user with this name or password';
+			}
+		}
+
+		(function autoLog () {
+			var lA = User.getLastAccess();
+			if (lA) {
+				User.setStorage(lA);
+				$scope.data = User.get();
+				$scope.isLoggedIn = true;
+			}
+		})();
+
+		$scope.logOut = function () {
+			User.clearLastAccess();
+			$scope.isLoggedIn = false;
+		}
+
+		$scope.toggleAscDesc = function () {
+			$scope.data.reverse = !$scope.data.reverse;
+			$scope.data.sortFlag = !$scope.data.sortFlag;
+			$scope.data.sortType = ['asc', 'desc'][+$scope.data.sortFlag];
+		}
+
+		$scope.removeContact = function () {
+			$scope.data.contacts.forEach(function (contact) {
+				if (contact.id == $routeParams.id) {
+					$scope.data.contacts.splice($scope.data.contacts.indexOf(contact), 1);
+				}
+			})
+			User.set($scope.data);
+			fetchGroups();
+		}
+
+		$scope.addContact = function (newContact) {
+			var lastId = $scope.data.contacts.length ? $scope.data.contacts[$scope.data.contacts.length-1].id : 0;
+			var clone = angular.copy(newContact)
+			clone.id = lastId + 1;
+			$scope.data.contacts.push(clone);
+			$location.path('/contacts/view/' + (lastId+1));
+			User.set($scope.data);
+			fetchGroups();
+		}
+
+		function fetchGroups (name) {
+			var groups = {};
+			$scope.data.contacts.map(function (contact) {
+				if (!!contact.group) {
+					groups[contact.group] = '';
+				}
+			});
+
+			$scope.data.groups = Object.keys(groups);
+		}
+
+		fetchGroups();
 
 });
 angular.module('addressBook').controller('ContactDetail', function ($scope, $location, $routeParams) {
@@ -450,25 +434,25 @@ angular.module('addressBook').controller('ContactDetail', function ($scope, $loc
 	}
 });
 angular.module('addressBook')
-	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
+	.config(['$routeProvider', function ($routeProvider) {
   
 	  $routeProvider
 		  
 		  .when('/login', {
-		  	templateUrl: '../front/templates/guest.html'
+		  	templateUrl: 'front/templates/guest.html'
 		  })
 
 		  .when('/contacts/view/:id', {
-		  	templateUrl: '../front/templates/contactDetail.html',
+		  	templateUrl: 'front/templates/contactDetail.html',
 		  	controller: 'ContactDetail'
 		  })
 
 		  .when('/contacts/add', {
-		  	templateUrl: '../front/templates/add.html'
+		  	templateUrl: 'front/templates/add.html'
 		  })
 
 		  .when('/contacts/edit/:id', {
-		  	templateUrl: '../front/templates/edit.html',
+		  	templateUrl: 'front/templates/edit.html',
 		  	controller: 'ContactDetail'
 		  })
 
