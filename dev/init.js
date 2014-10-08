@@ -1,1 +1,1 @@
-angular.module('addressBook', ['ngRoute', 'ngResource']);
+angular.module('addressBook', ['ngRoute', 'ngResource', 'ngAnimate']);

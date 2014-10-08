@@ -4,12 +4,12 @@
 		<div class="col-md-3 col-xs-3 text-center">
 			<div class="contact-image-container">
 				<img src="front/img/placeholder.png" alt="" class="img-square">
-				<a href="#/contacts/edit/{{data.current.id}}"><button class="btn btn-sm btn-success">Edit</button></a>
+				<a href="#/contacts/edit/{{current.id}}"><button class="btn btn-sm btn-success">Edit</button></a>
 			</div>
 		</div>
 		<div class="col-md-8 col-xs-8">
-			<h1 class="text-center">{{data.current.name}} {{data.current.surname}}
-				<small>{{data.current.group}}</small>
+			<h1 class="text-center">{{current.name}} {{current.surname}}
+				<small>{{current.group}}</small>
 			</h1>
 		</div>
 	</div>
@@ -18,14 +18,14 @@
 		<div class="col-md-6">
 			<div class="">
 				<i class="fa fa-envelope btn-sm"></i>
-				<a href="mailto:{{data.current.email}}">
-					{{data.current.email}}
+				<a href="mailto:{{current.email}}">
+					{{current.email}}
 				</a>
 			</div>
 
 			<div class="">
 				<i class="fa fa-phone-square btn-sm"></i> 
-				{{data.current.phone}}
+				{{current.phone}}
 			</div>
 		</div>
 	</div>

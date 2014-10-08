@@ -1,6 +1,5 @@
 angular.module('addressBook')
-	.factory('User', function () {
-
+	.factory('User', function ($routeParams) {
 		'use strict';
 
 		var STORAGE_ID;
@@ -9,8 +8,6 @@ angular.module('addressBook')
 			isLoggedIn: false,
 			login: '',
 			password: '',
-			activeGroup : '!',
-			reverse : false,
 			sortFlag : 0,
 			sortType : 'asc',
 			contacts: [],
@@ -18,21 +15,16 @@ angular.module('addressBook')
 		};
 
 		return {
+            current: 1,
 			get : function () {
-				return JSON.parse(localStorage.getItem(STORAGE_ID));
+				return STORAGE_ID ? JSON.parse(localStorage.getItem(STORAGE_ID)) : defaultUser;
 			},
 			set : function (data) {
 				localStorage.setItem(STORAGE_ID, JSON.stringify(data));
 			},
-			getDefault : function () {
-				return defaultUser;
-			},
-			setLastAccess : function (lA) {
-				return localStorage.setItem('lastAccessedUser', lA);
-			},
-			getLastAccess : function () {
-				return localStorage.getItem('lastAccessedUser');
-			},
+            lastAccess : function (LA) {
+              return LA ? localStorage.setItem('lastAccessedUser', LA) : localStorage.getItem('lastAccessedUser');
+            },
 			clearLastAccess : function () {
 				return localStorage.removeItem('lastAccessedUser');
 			},

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="application-wrapper" ng-cloak="">
-		<div class="container-fluid application" ng-controller="AppController">
+		<div class="container-fluid application" ng-controller="AppController" ng-init="data.activeGroup='!'">
 			<div class="row">
 				<div class="col-md-3 sidebar">
 					
@@ -23,26 +23,29 @@
 					>
 						<div class="form-group has-feedback">
 							<input 
-								ng-class="{'has-error' : loginForm.userName.$error.pattern && !loginForm.userName.$pristine}" 
+								ng-class="loginForm.userName.$error.pattern || !userName.length
+                                        ? 'has-error' : userName.length
+                                        ? 'looks-valid' : '' "
 								type="text" 
 								name="userName" 
-								ng-model="data.userName" 
+								ng-model="userName"
 								class="form-control" 
 								placeholder="Login" 
 								required 
-								ng-pattern="/^[a-z0-9_-]{3,16}$/"
+								ng-pattern="/^[a-z0-9_-]{5,16}$/"
 							>
 							<span class="fa fa-user form-control-feedback"></span>
 						</div>
 
 						<div class="form-group has-feedback">
-							<input 
-								ng-class="{'has-error' : loginForm.passWord.$error.pattern && !loginForm.passWord.$pristine}" 
-								type="password" 
+							<input
+                                ng-class="loginForm.passWord.$error.pattern || !userName.length
+                                    ? 'has-error' : passWord.length
+                                    ? 'looks-valid' : '' "type="password"
 								class="form-control" 
 								placeholder="Password" 
 								name="passWord"	
-								ng-model="data.passWord" 
+								ng-model="passWord"
 								required 
 								ng-pattern="/^[a-z0-9_-]{6,18}$/"
 							>
@@ -53,13 +56,13 @@
 							<button 
 								type="submit" 
 								ng-disabled="loginForm.$invalid" 
-								ng-click="data.actionType='login'" 
+								ng-click="register=false"
 								class="btn btn-sm btn-success"
 							>Login</button>
 							<button
 								type="submit" 
 								ng-disabled="loginForm.$invalid" 
-								ng-click="data.actionType='register'" 
+								ng-click="register=true"
 								class="btn btn-sm btn-default"
 							>Register</button>
 						</div>
@@ -96,7 +99,8 @@
 								<i class="fa fa-sort-alpha-{{data.sortType}}" ng-click="toggleAscDesc()" ></i>
 							</a>
 							<div class="contacts">
-                                <a ng-repeat="contact in data.contacts | filter: {name: searchQuery} | orderBy:'name':data.sortFlag | filter:{group: data.activeGroup}:true track by $index"  ng-class="{active: data.current === contact}" href="#/contacts/view/{{contact.id}}" class="list-group-item">
+                                <a ng-repeat="contact in data.contacts | filter: {name: searchQuery} | orderBy:'name':data.sortFlag | filter:{group: data.activeGroup}:true track by $index"
+                                   ng-class="{active: current.id == contact.id}" href="#/contacts/view/{{contact.id}}" class="list-group-item">
                                     {{contact.name}} {{contact.surname}}
                                     <small>
                                         {{contact.group}}

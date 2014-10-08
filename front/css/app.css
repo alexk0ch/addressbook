@@ -158,12 +158,12 @@ a:hover, a:active {
 	margin-bottom: 10px;
 }
 
-.has-error {
-	background-color: #FC9B8D;
+.form-inline .form-control.has-error {
+	border-right: 10px solid #FC9B8D;
 }
 
-.looks-valid {
-	background-color: #ACFA92;
+.form-inline .form-control.looks-valid {
+    border-right: 10px solid #ACFA92;
 }
 
 .footer {
@@ -214,4 +214,25 @@ a:hover, a:active {
 		padding: 0px;
 		padding-left: 90px;
 	}
+}
+
+.list-group-item.ng-enter, button
+{
+    -webkit-transition: ease-out 0.3s 0s all;
+    -moz-transition: ease-out 0.3s 0s all;
+    -ms-transition: ease-out 0.3s 0s all;
+    -o-transition: ease-out 0.3s 0s all;
+    transition: ease-out 0.3s 0s all;
+    position: relative;
+    display: block;
+}
+
+.ng-enter.ng-enter-active,
+.ng-leave {
+    top: 0;
+}
+
+.ng-leave.ng-leave-active,
+.ng-enter {
+    top: -1000px;
 }

@@ -1,25 +1,22 @@
 angular.module('addressBook')
 	.controller('AppController', function ($scope, User, $timeout, $location, $routeParams) {
 
-		$scope.data = User.getDefault();
+		$scope.data = User.get();
 
 		$scope.loginRegister = function () {
 
-			$scope.data.login = CryptoJS.MD5($scope.data.userName).toString();
-			$scope.data.password = CryptoJS.MD5($scope.data.passWord).toString();
-			$scope.data.passWord = '';
+			$scope.data.login = CryptoJS.MD5($scope.userName).toString();
+			$scope.data.password = CryptoJS.MD5($scope.passWord).toString();
+			$scope.passWord = '';
 
-			if ($scope.data.actionType === 'register')
-				registerUser(); 
-			if ($scope.data.actionType === 'login')
-				loginUser();
-		}
+			$scope.register === true ? registerUser() : loginUser();
+		};
 
 		$scope.$watch('data.loggerMessage', function () {
 			$timeout(function () {
 				$scope.data.loggerMessage = ''
 			}, 3000)
-		})
+		});
 
 		function registerUser () {
 
@@ -30,7 +27,7 @@ angular.module('addressBook')
 			if (!!exists) {
 				$scope.data.loggerMessage = 'User exists, pick another name';
 			} else {
-				User.setLastAccess($scope.data.login);
+				User.lastAccess($scope.data.login);
 				User.set($scope.data)
 				loginUser();
 			}
@@ -43,7 +40,7 @@ angular.module('addressBook')
 			var exists = User.get();
 
 			if (!!exists && exists.password === $scope.data.password) {
-				User.setLastAccess($scope.data.login);
+				User.lastAccess($scope.data.login);
 				$scope.data = exists;
 				$scope.isLoggedIn = true;
 				$location.path('/contacts/').replace();
@@ -53,9 +50,9 @@ angular.module('addressBook')
 		}
 
 		(function autoLog () {
-			var lA = User.getLastAccess();
-			if (lA) {
-				User.setStorage(lA);
+			var LA = User.lastAccess();
+			if (LA) {
+				User.setStorage(LA);
 				$scope.data = User.get();
 				$scope.isLoggedIn = true;
 			}
@@ -67,19 +64,17 @@ angular.module('addressBook')
 		}
 
 		$scope.toggleAscDesc = function () {
-			$scope.data.reverse = !$scope.data.reverse;
 			$scope.data.sortFlag = !$scope.data.sortFlag;
 			$scope.data.sortType = ['asc', 'desc'][+$scope.data.sortFlag];
 		}
 
 		$scope.removeContact = function () {
-			$scope.data.contacts.forEach(function (contact) {
+			$scope.data.contacts.some(function (contact) {
 				if (contact.id == $routeParams.id) {
-					$scope.data.contacts.splice($scope.data.contacts.indexOf(contact), 1);
-				}
-			})
+                    return $scope.data.contacts.splice($scope.data.contacts.indexOf(contact), 1);
+                }
+			});
 			User.set($scope.data);
-			fetchGroups();
 		}
 
 		$scope.addContact = function (newContact) {
@@ -89,20 +84,17 @@ angular.module('addressBook')
 			$scope.data.contacts.push(clone);
 			$location.path('/contacts/view/' + (lastId+1));
 			User.set($scope.data);
-			fetchGroups();
 		}
 
-		function fetchGroups (name) {
+		function fetchGroups () {
 			var groups = {};
 			$scope.data.contacts.map(function (contact) {
 				if (!!contact.group) {
 					groups[contact.group] = '';
 				}
 			});
-
 			$scope.data.groups = Object.keys(groups);
 		}
 
-		fetchGroups();
-
+        $scope.$watchCollection('data.contacts', fetchGroups);
 });
